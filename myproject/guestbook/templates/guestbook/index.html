@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Django GuestBook</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'guestbook/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron mt-3">
+        <h1>GuestBook App</h1>
+        <p class="lead">This example is a quick exercise to illustrate how the bottom navbar works.</p>
+        <a class="btn btn-lg btn-primary" href="{% url 'sign' %}" role="button">Sign &raquo;</a>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          {% for c in comments %}
+          <div class="comment">
+            <h2>{{ c.name }}</h2>
+            <div class="content alert alert-dark">             
+              <p>{{ c.comment }}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'guestbook/jquery.min.js' %}"></script>
+    <script src="{% static 'guestbook/bootstrap.min.js' %}"></script>
+  </body>
+</html>
